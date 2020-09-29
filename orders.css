@@ -1,0 +1,196 @@
+/* SE-2017-007 */
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    background-color: rgba(0,0,0, .8);
+    background-image: url("pizza6.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+.header-menu {
+    position: relative;
+    height: 100px;
+    position: sticky;
+    top: 0;
+    padding-top: 20px;
+    transition: .7s;
+    color: white;
+    text-shadow: 2px 1px 5px black;
+    z-index: 10;
+}
+.header-link {
+    position: absolute;
+    right: 300px;
+    padding: 5px;
+    padding-top: 30px;
+    top: 10%;
+    
+}
+.header-link a {
+    text-decoration: none;
+    margin-right: 20px;
+    transition: padding-bottom .3s ease-in-out;
+    color: white;
+}
+.header-link a:hover {
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+}
+.header-name {
+    position: absolute;
+    left: 450px;
+    top: 10%;
+    font-family: MV Boli;
+}
+.header-name h2{
+    border-bottom: 3px solid white;
+    padding-bottom: 4px;
+}
+.oders {
+    background-color: white;
+    margin-top: 480px;
+    height: 1000px;
+}
+.oders h1 {
+    position: absolute;
+    font-size: xx-large;
+    color: white;
+    font-family: Segoe Print;
+    text-shadow: 3px 3px 10px black;
+    box-shadow: 1px 0px 2px black;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 20px;
+    left: 45%;
+    top: 400px;
+}
+#form {
+    font-family: Trebuchet MS;
+}
+#form h2 {
+    font-family: Segoe UI Symbol;
+}
+
+.right-form {
+    display: table;
+    float: right;
+    width: 50%;
+}
+.right-form input{
+    width: 440px;
+    padding: 5px;
+    margin-top: 10px;
+}
+.right-form label {
+    margin: 0px;
+    margin-top: 10px;
+}
+
+.left-form{
+    display: table;
+    margin-left: 160px;
+}
+.left-form input {
+    width: 440px;
+    padding: 5px;
+    margin-top: 10px;
+}
+.left-form label {
+    width: 400px;
+    padding: 5px;
+    margin-top: 10px;
+}
+#delivery-address {
+    display: none;
+}
+#submit {
+    margin-top: 140px;
+    margin-left: 250px;
+    width: 170px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 1px 1px 6px black;
+    background-color: #29B6F6;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+#same-billing {
+    display: none;
+}
+#paymet-info {
+    display: none;
+}
+#page_bottom{
+    margin-top: 0;
+    position: relative;
+    height: 300px;
+    background-color: #34495E;
+    font-family:Malgun Gothic;
+}
+#page_bottom p{
+    position: absolute;
+    bottom: 0px;
+    left: 710px;
+    color: white;
+}
+#bottom_item{
+    position: absolute;
+    bottom: 30px;
+    left: 610px;
+}
+#bottom_item a{
+    padding: 10px;
+    font-size: 20px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+.fa-instagram {
+    background: #125688;
+    color: white;
+  }
+#bottom_info{
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    margin-top: 0;
+}
+#bottom_info h4{
+    font-size: small;
+    margin-top: 0;
+    color: white;
+}
+#page_bottom h2{
+   position: absolute;
+   font-size: medium;
+   top: 30px;
+   left: 50px;
+   color: red;
+}

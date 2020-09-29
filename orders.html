@@ -1,0 +1,177 @@
+<!-- SE-2017-007 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="stylesheet" href="orders.css" type="text/css">
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+    <link rel="short icon" href=".\chef3.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="orders.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="header-menu" id="header-menu">
+        <div class="header-name"><h2>Bruno's Pizzeria</h2></div>
+        <div class="header-link">
+            <a href="#" style="border-bottom: 2px solid white;">Oder Now</a>
+            <a href="#">Register</a>
+            <a href="#">Features</a>
+        </div>
+    </div>
+
+    <div class="oders">
+        <h1>Oder Now</h1>
+
+        <div class="form-tag">
+            <form action="" method="GET" id="form">
+                <div class="right-form">
+                    <div class="customer-detail">
+                        <h2>Customer Details</h2>
+                        <label for="name">Name</label><br><input type="text" placeholder="John Smith" ><br>
+                        <label for="email">Email</label><br><input type="email" placeholder="example@example.com" ><br>
+                        <label for="phoneNumber">Contact Number</label><br><input type="tel" placeholder="071-1234567"><br>
+                    </div>
+                    <div class="billing">
+                        <h2 for="Check same">Billing Address</h2>
+                        <div class="same-billing" id="same-billing">
+                            <p>Same as delivery address?</p>
+                            <label for="yes">Yes</label><input type="radio" id="yes" name="address" value="yes" onclick="addressMatch(1)"><br>
+                            <label for="no">No </label><input type="radio" id="no" name="address" value="no" onclick="addressMatch(2)"><br><br>
+                        </div>
+                        
+                        <label for="Address" >Address</label><br><input type="text" placeholder="" id="right-address"><br>
+                        <label for="Suburb">Suburb</label><br><input type="text" id="right-suburb"><br>
+                        <label for="Postcode">Postcode</label><br><input type="number" id="right-postcode"><br>
+                    </div>
+
+                    <div class="paymet-info" id="paymet-info">
+                        <h2>Payment Information</h2><br>
+                        <label for="fullname">Full Name</label><br><input type="text" placeholder="John Smith"><br>
+                        <label for="Credit Card">Credit Card</label><br><input type="number" name="" id="" placeholder="1234 5678 1234 5678"><br>
+                        <label for="Expiry">Expiry</label><br><input type="month" name="" id=""><br>
+                        <label for="cvv">CVV</label><br><input type="number" placeholder="123"><br>
+                    </div>
+                </div>
+                <div class="left-form">
+                    <div class="divivery">
+                        <h2>Pickup or Delivery?</h2>
+                        <label for="pickup">Pickup&nbsp&nbsp&nbsp</label><input type="radio" id="pickup" value="pickup" onclick="PickorDeliver(1)" name="PD"><br>
+                        <label for="delivery">Delivery</label><input type="radio" id="delivery" value="delivery" onclick="PickorDeliver(2)" name="PD">
+                    </div>
+                    <div class="text-area">
+                        <h2>Your Pizza Order</h2>
+                        <textarea name="get-oder" id="textarea" cols="60" rows="4" placeholder="1 Large Supreme"></textarea><br>
+                    </div>
+
+                    <div class="delivery-address" id="delivery-address">
+                        <h2>Delivery Address</h2>
+                        <label for="address">Address</label><br><input type="text" id="left-address"><br>
+                        <label for="Suburb">Suburb</label><br><input type="text" id="left-suburb"><br>
+                        <label for="postcode">Postcode</label><br><input type="number" id="left-postcode"><br>
+                    </div>
+                    <div class="pay-check">
+                        <h2>Pay online or on pickup?</h2>
+                        <label for="pickup">Pickup</label><input type="radio" id="pickup-pay" name="check-method" value="1" onclick="checkMothod(1)"><br>
+                        <label for="online">Online</label><input type="radio" id="online-pay" name="check-method" value="2" onclick="checkMothod(2)"><br>
+                    </div>
+                    
+                </div>
+                <button type="submit" id="submit" style="font-family: Tahoma;font-size: large;">Submit</button>
+            </form>
+            <script>
+                var Form = document.getElementById("form");
+                var InputTags = document.getElementsByTagName("INPUT");
+                var TextArea = document.getElementById("textarea");
+
+                Form.addEventListener('submit', (event) => {
+                var ErroMessages = [];
+                if( InputTags[13].checked ) {
+                    // alert(InputTags[13].value);
+
+                    if( InputTags[14].value == "" ) {
+                        ErroMessages.push("Delivery Address: Address is required");
+                    }
+                    
+                    if( InputTags[15].value == "" ) {
+                        ErroMessages.push("Delivery Address: Suburb is required");
+                    }
+                    
+                    if( InputTags[16].value == "" ) {
+                        ErroMessages.push("Delivery Address: Postcode is required");
+                    }
+                }
+                if ( InputTags[18].checked ) {
+                    if( InputTags[8].value == "" ) {
+                        ErroMessages.push("Payment Information: Full Name is required");
+                    }
+                    if( InputTags[9].value == "" ) {
+                        ErroMessages.push("Payment Information: Credit card number is required");
+                    }
+                    if( InputTags[10].value == "" ) {
+                        ErroMessages.push("Payment Information: Expity is required");
+                    }
+                    if( InputTags[11].value == "" ) {
+                        ErroMessages.push("Payment Information: CVV is required");
+                    }
+                }
+                if ( InputTags[0].value == "" ) {
+                    ErroMessages.push("Customer Details: Name is required");
+                }
+                if ( InputTags[1].value == "" ) {
+                    ErroMessages.push("Customer Details: Email is required");
+                }
+                if ( InputTags[2].value == "" ) {
+                    ErroMessages.push("Customer Details: Contact Number is required");
+                }
+                if ( InputTags[5].value == "" ) {
+                    ErroMessages.push("Billing Address: Address is required");
+                }
+                if ( InputTags[6].value == "" ) {
+                    ErroMessages.push("Billing Address: Suburb is required");
+                }
+                if ( InputTags[7].value == "" ) {
+                    ErroMessages.push("Billing Address: Postcode Number is required");
+                }
+                if ( TextArea.value == "" ) {
+                    ErroMessages.push("Your pizza order is required");
+                }
+                if ( !InputTags[12].checked && !InputTags[13].checked ) {
+                    ErroMessages.push("Select Pickup or Delivery!");
+                }
+                if ( !InputTags[18].checked && !InputTags[17].checked ) {
+                    ErroMessages.push("Select payment method!");
+                }
+
+                if( ErroMessages.length > 0 ) {
+                    event.preventDefault();
+                    var messages = ErroMessages.join('\n');
+                    alert(messages);
+                   
+                }
+                
+                })
+            </script>
+        </div>
+    </div>
+    <div id="page_bottom">
+
+        <h2>contact us</h2>
+        <div id="bottom_info">
+            <h4>email &nbsp&nbsp&nbsp:<strong>&nbspsachidisanayaka98@gmail.com</strong><br>
+                mobile &nbsp:<strong>&nbsp+94711427041</strong><br>
+                home &nbsp&nbsp&nbsp:<strong>&nbsp+94266624021</strong></h4>
+
+        </div>
+
+        <div id="bottom_item">
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-instagram"></a>
+            <a href="#" class="fa fa-google"></a>
+        </div>
+        <p>Copyright &#169; 2020</p>
+    </div>
+</body>
+</html>
